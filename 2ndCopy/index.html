@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>My Web Server Home Page</title>
+    <style>
+      /* Add some styles to the header */
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Add some styles to the navigation menu */
+      nav {
+        background-color: #eee;
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      nav li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s ease-in-out;
+      }
+
+      nav li a:hover {
+        color: #666;
+      }
+
+      /* Add some styles to the main content section */
+      main {
+        padding: 20px;
+        text-align: center;
+        min-height: calc(100vh - 110px); /* Set min-height to fill remaining space */
+      }
+
+      main h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        animation: color-change 5s infinite;
+      }
+
+      main p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      /* Add some styles to the footer */
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        position: fixed; /* Fix the footer at the bottom */
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+      div {
+        width: 300px; /* Set a fixed width for the div */
+        height: 200px; /* Set a fixed height for the div */
+        position: absolute; /* Position the div absolutely */
+        top: 50%; /* Set the top position to 50% of the viewport height */
+        left: 50%; /* Set the left position to 50% of the viewport width */
+        transform: translate(-50%, -50%); /* Translate the div back by 50% of its own width and height */
+      }
+
+      /* Add an animation to the heading */
+      @keyframes color-change {
+        0% { color: #ff0000; }
+        50% { color: #00ff00; }
+        100% { color: #0000ff; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to my Web Server</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div>
+        <h2>A <br> Simple <br> Webserver</h2>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2023 My Web Server</p>
+    </footer>
+  </body>
+</html>
