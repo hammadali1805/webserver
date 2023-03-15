@@ -61,24 +61,31 @@ def generate_rpns(rqst_data):
     
     if os.path.exists(file_location):
 
-        if file_location.endswith('index.html') or rqst_parts[1][1:] == '' :
-            with open('index.html') as f:
-                body = f.read()        
-            header = {
-                'Content-Type': 'text/html',
-                'Content-Length': len(body)
-            }
-            return build_rpns(200, 'OK', header, body)
+        body = '<html><body><h1>Computer Networks are the best!</h1></body></html>'
+        headers = {
+            'Content-Type': 'text/html',
+            'Content-Length': len(body)
+        }
+        return build_response(200, 'OK', headers, body)
         
-        else:
-            with open('message.html') as f:
-                body = f.read()
-            header = {
-                'Content-Type': 'text/html',
-                'Content-Length': len(body)
-            }
-            return build_rpns(200, 'OK', header, body)
+
+
+
+
+
+
+
+
         
+
+
+
+
+
+
+
+
+
     else:
         return build_rpns(404, 'Not Found')
     
