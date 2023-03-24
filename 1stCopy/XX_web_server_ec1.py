@@ -121,17 +121,29 @@ def generate_response(request_data):
     # Check if file exists in server directory
     file_path = os.path.join(os.getcwd(), path[1:])
 
-    if not os.path.exists(file_path):
-        return build_response(404, 'Not Found', None)
-
     if os.path.exists(file_path):
-        body = '<html><body><h1>Computer Networks are the best!</h1></body></html>'
-        headers = {
-            'Content-Type': 'text/html',
-            'Content-Length': len(body)
-        }
-        return build_response(200, 'OK', headers, body)
-    
+
+        if file_path.endswith('index.html') or request_line_parts[1][1:] == '' :
+            with open('index.html') as f:
+                body = f.read()        
+            header = {
+                'Content-Type': 'text/html',
+                'Content-Length': len(body)
+            }
+            return build_response(200, 'OK', header, body)
+        
+        else:
+            with open('message.html') as f:
+                body = f.read()
+            header = {
+                'Content-Type': 'text/html',
+                'Content-Length': len(body)
+            }
+            return build_response(200, 'OK', header, body)
+        
+    else:
+        return build_response(404, 'Not Found')  
+      
 def build_response(status_code, status_text, headers=None, body=None):
     response_lines = []
     response_lines.append(f'HTTP/1.1 {status_code} {status_text}')

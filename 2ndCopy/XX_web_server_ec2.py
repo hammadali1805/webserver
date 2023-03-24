@@ -1,4 +1,5 @@
 import socket
+import threading
 import sys
 import os
 import re
@@ -87,9 +88,11 @@ def start_web_server(host, port):
         sock.listen()
 
         print(f'Server started listening on {host}:{port}')
-        
-        user_sock, user_addr = sock.accept()
-        user_status(user_sock, user_addr)
+
+        while True:
+            user_sock, user_addr = sock.accept()
+            user_thread = threading.Thread(target=user_status, args=(user_sock, user_addr))
+            user_thread.start()
 
 if __name__ == '__main__':
     start_web_server(HOST, PORT)

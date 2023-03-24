@@ -1,4 +1,5 @@
 import socket
+import threading
 import sys
 import os
 
@@ -149,8 +150,11 @@ def start_server(host, port):
         server_sock.listen()
 
         print(f'Server listening on {host}:{port}')
-        client_sock, client_addr = server_sock.accept()
-        handle_client(client_sock, client_addr)
+
+        while True:
+            client_sock, client_addr = server_sock.accept()
+            client_thread = threading.Thread(target=handle_client, args=(client_sock, client_addr))
+            client_thread.start()
 
 if __name__ == '__main__':
     start_server(HOST, PORT)
